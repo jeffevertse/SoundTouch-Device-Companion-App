@@ -2,6 +2,8 @@
 
 iOS app for controlling a Bose SoundTouch 20 via the [SoundTouch-Device](https://github.com/jeffevertse/SoundTouch-Device) HTTP API — a Go controller that runs directly on the speaker hardware.
 
+<img src="screenshot.png" width="320" alt="SoundTouch companion app showing now playing and preset grid" />
+
 ## Features
 
 - **Now Playing** — live track, station, and playback status, polling every 5 seconds
