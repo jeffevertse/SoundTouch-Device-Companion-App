@@ -9,7 +9,7 @@ struct SoundTouchCompanionApp: App {
             NavigationStack {
                 ContentView()
                     .navigationTitle("SoundTouch")
-                    .navigationBarTitleDisplayMode(.large)
+                    .navigationBarTitleDisplayMode(.inline)
             }
             .environment(appState)
         }

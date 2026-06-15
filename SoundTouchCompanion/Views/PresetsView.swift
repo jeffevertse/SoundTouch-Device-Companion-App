@@ -3,6 +3,7 @@ import SwiftUI
 struct PresetsSection: View {
     @Environment(AppState.self) private var state
     @State private var editingPreset: Preset?
+    let cardHeight: CGFloat
 
     private let columns = [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)]
 
@@ -12,11 +13,10 @@ struct PresetsSection: View {
 
             LazyVGrid(columns: columns, spacing: 12) {
                 ForEach(state.config.presets) { preset in
-                    PresetCard(preset: preset, onEdit: { editingPreset = preset })
+                    PresetCard(preset: preset, height: cardHeight, onEdit: { editingPreset = preset })
                 }
             }
         }
-        .padding(.bottom, 8)
         .sheet(item: $editingPreset) { preset in
             PresetEditSheet(preset: preset)
         }
@@ -28,6 +28,7 @@ struct PresetsSection: View {
 private struct PresetCard: View {
     @Environment(AppState.self) private var state
     let preset: Preset
+    let height: CGFloat
     let onEdit: () -> Void
 
     private var isActive: Bool {
@@ -49,9 +50,11 @@ private struct PresetCard: View {
                     .foregroundStyle(isEmpty ? .secondary : .primary)
                     .lineLimit(2)
                     .multilineTextAlignment(.leading)
+                Spacer()
             }
             .padding(14)
-            .frame(maxWidth: .infinity, minHeight: 72, alignment: .leading)
+            .frame(height: height, alignment: .leading)
+            .frame(maxWidth: .infinity)
             .background(
                 isActive
                     ? Color.accentColor.opacity(0.10)

@@ -33,10 +33,9 @@ struct BassRow: View {
                     .frame(width: 32, alignment: .trailing)
             }
         }
-        .padding(14)
+        .padding(12)
         .background(Color(.secondarySystemGroupedBackground))
         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-        .padding(.bottom, 8)
         .onAppear { pendingLevel = state.bassLevel }
         .onChange(of: state.bassLevel) { _, new in pendingLevel = new }
     }

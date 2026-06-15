@@ -57,7 +57,7 @@ struct SettingsSection: View {
 
 // MARK: - Change device sheet
 
-private struct ChangeDeviceSheet: View {
+struct ChangeDeviceSheet: View {
     @Environment(AppState.self) private var state
     @Environment(\.dismiss) private var dismiss
     @State private var isConnecting = false

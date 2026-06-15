@@ -37,10 +37,9 @@ struct NowPlayingCard: View {
                     .lineLimit(1)
             }
         }
-        .padding(16)
+        .padding(12)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color(.secondarySystemGroupedBackground))
         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-        .padding(.vertical, 8)
     }
 }
