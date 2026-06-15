@@ -3,36 +3,59 @@ import SwiftUI
 struct BassView: View {
     @Environment(AppState.self) private var state
     @State private var pendingLevel: Int = 0
-    @State private var isSetting = false
+
+    private var hasChanged: Bool { pendingLevel != state.bassLevel }
 
     var body: some View {
-        VStack(spacing: 8) {
-            HStack {
-                Text("Bass")
+        VStack(alignment: .leading, spacing: 14) {
+            HStack(alignment: .firstTextBaseline) {
+                Label("Bass", systemImage: "dial.low.fill")
                     .font(.headline)
+                    .foregroundStyle(.primary)
                 Spacer()
                 Text(pendingLevel > 0 ? "+\(pendingLevel)" : "\(pendingLevel)")
-                    .font(.title3).fontWeight(.bold)
-                    .monospacedDigit()
-                    .frame(minWidth: 36, alignment: .trailing)
-                Button("Set") {
+                    .font(.title2.monospacedDigit())
+                    .fontWeight(.bold)
+                    .foregroundStyle(hasChanged ? Color.accentColor : .primary)
+                    .contentTransition(.numericText(value: Double(pendingLevel)))
+                    .animation(.snappy, value: pendingLevel)
+            }
+
+            HStack(spacing: 8) {
+                Text("−9")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .frame(minWidth: 18, alignment: .trailing)
+                Slider(
+                    value: Binding(
+                        get: { Double(pendingLevel) },
+                        set: { pendingLevel = Int($0.rounded()) }
+                    ),
+                    in: -9...9, step: 1
+                )
+                Text("+9")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .frame(minWidth: 18, alignment: .leading)
+            }
+
+            if hasChanged {
+                Button {
                     Task { await state.setBass(pendingLevel) }
+                } label: {
+                    Text("Apply Bass")
+                        .font(.subheadline.weight(.semibold))
+                        .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.borderedProminent)
-                .disabled(isSetting || pendingLevel == state.bassLevel)
-            }
-            HStack {
-                Text("−9").font(.caption).foregroundStyle(.secondary)
-                Slider(value: Binding(
-                    get: { Double(pendingLevel) },
-                    set: { pendingLevel = Int($0.rounded()) }
-                ), in: -9...9, step: 1)
-                Text("+9").font(.caption).foregroundStyle(.secondary)
+                .controlSize(.regular)
+                .transition(.push(from: .bottom).combined(with: .opacity))
             }
         }
-        .padding()
+        .padding(16)
         .background(Color(.secondarySystemGroupedBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .animation(.spring(duration: 0.3), value: hasChanged)
         .onAppear { pendingLevel = state.bassLevel }
         .onChange(of: state.bassLevel) { _, new in pendingLevel = new }
     }

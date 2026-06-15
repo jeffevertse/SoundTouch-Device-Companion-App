@@ -4,26 +4,41 @@ struct PresetsView: View {
     @Environment(AppState.self) private var state
     @State private var pollingTask: Task<Void, Never>?
 
-    let columns = [GridItem(.flexible()), GridItem(.flexible())]
+    private let columns = [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)]
 
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: 16) {
-                    NowPlayingBanner()
-
-                    LazyVGrid(columns: columns, spacing: 12) {
-                        ForEach(state.config.presets) { preset in
-                            PresetButton(preset: preset)
-                        }
+                LazyVGrid(columns: columns, spacing: 12) {
+                    ForEach(state.config.presets) { preset in
+                        PresetCard(preset: preset)
                     }
-
-                    BassView()
                 }
-                .padding()
+                .padding(.horizontal, 16)
+                .padding(.top, 8)
+
+                BassView()
+                    .padding(.horizontal, 16)
+                    .padding(.top, 4)
+                    .padding(.bottom, 16)
             }
-            .navigationTitle("SoundTouch")
             .background(Color(.systemGroupedBackground))
+            .navigationTitle("SoundTouch")
+            .navigationBarTitleDisplayMode(.large)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    VStack(spacing: 1) {
+                        Text("SoundTouch")
+                            .font(.headline)
+                        Text(state.host)
+                            .font(.caption2)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            }
+        }
+        .safeAreaInset(edge: .bottom) {
+            NowPlayingBanner()
         }
         .onAppear { startPolling() }
         .onDisappear { stopPolling() }
@@ -44,39 +59,67 @@ struct PresetsView: View {
     }
 }
 
-private struct PresetButton: View {
+// MARK: - Preset card
+
+private struct PresetCard: View {
     @Environment(AppState.self) private var state
     let preset: Preset
 
-    var isActive: Bool {
+    private var isActive: Bool {
         state.nowPlaying?.activePresetID == preset.id && state.nowPlaying?.isPlaying == true
     }
+    private var isEmpty: Bool { preset.streamURL.isEmpty }
 
     var body: some View {
         Button {
             Task { await state.play(presetID: preset.id) }
         } label: {
-            VStack(spacing: 6) {
-                Text("\(preset.id)")
-                    .font(.caption2).fontWeight(.semibold)
-                    .foregroundStyle(isActive ? .white.opacity(0.8) : .secondary)
-                Text(preset.name.isEmpty ? "Empty" : preset.name)
-                    .font(.subheadline).fontWeight(.medium)
-                    .foregroundStyle(isActive ? .white : .primary)
-                    .multilineTextAlignment(.center)
-                    .lineLimit(2)
+            ZStack(alignment: .topLeading) {
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .fill(isActive ? Color.accentColor : Color(.secondarySystemGroupedBackground))
+
+                if isActive {
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .fill(.white.opacity(0.08))
+                }
+
+                VStack(alignment: .leading, spacing: 0) {
+                    // Preset number badge
+                    Text("\(preset.id)")
+                        .font(.caption2.weight(.bold))
+                        .foregroundStyle(isActive ? .white.opacity(0.75) : .secondary)
+                        .padding(.horizontal, 7)
+                        .padding(.vertical, 3)
+                        .background(isActive ? .white.opacity(0.18) : Color(.tertiarySystemFill))
+                        .clipShape(Capsule())
+                        .padding(10)
+
+                    Spacer(minLength: 0)
+
+                    Text(isEmpty ? "Empty" : preset.name)
+                        .font(.callout.weight(.semibold))
+                        .foregroundStyle(isActive ? .white : (isEmpty ? .secondary : .primary))
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(2)
+                        .padding(.horizontal, 12)
+                        .padding(.bottom, 14)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
-            .frame(maxWidth: .infinity, minHeight: 72)
-            .padding(.horizontal, 8)
-            .background(isActive ? Color.accentColor : Color(.secondarySystemGroupedBackground))
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-            .overlay(
-                RoundedRectangle(cornerRadius: 12)
-                    .strokeBorder(isActive ? .clear : Color(.separator), lineWidth: 0.5)
-            )
+            .frame(height: 96)
         }
-        .buttonStyle(.plain)
-        .disabled(preset.streamURL.isEmpty)
-        .opacity(preset.streamURL.isEmpty ? 0.4 : 1)
+        .buttonStyle(ScaleButtonStyle())
+        .disabled(isEmpty)
+        .opacity(isEmpty ? 0.45 : 1)
+    }
+}
+
+// MARK: - Button style with press scale
+
+private struct ScaleButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.95 : 1)
+            .animation(.spring(duration: 0.2, bounce: 0.3), value: configuration.isPressed)
     }
 }

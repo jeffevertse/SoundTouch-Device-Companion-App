@@ -11,30 +11,45 @@ struct ConfigView: View {
         NavigationStack {
             Form {
                 ForEach(state.config.presets.indices, id: \.self) { i in
-                    Section("Preset \(state.config.presets[i].id)") {
+                    Section {
                         LabeledContent("Name") {
                             TextField("Station name", text: $state.config.presets[i].name)
                                 .multilineTextAlignment(.trailing)
                         }
-                        LabeledContent("URL") {
-                            TextField("http(s)://…", text: $state.config.presets[i].streamURL)
+                        LabeledContent("Stream URL") {
+                            TextField("https://…", text: $state.config.presets[i].streamURL)
                                 .multilineTextAlignment(.trailing)
                                 .keyboardType(.URL)
                                 .autocorrectionDisabled()
                                 .textInputAutocapitalization(.never)
                         }
+                    } header: {
+                        Text("Preset \(state.config.presets[i].id)")
                     }
                 }
 
                 Section {
-                    Button("Save & Apply") {
+                    Button {
                         Task {
                             let ok = await state.saveConfig()
-                            saveResult = ok ? .ok : .failed(state.connectionError ?? "Unknown error")
+                            saveResult = ok
+                                ? .ok
+                                : .failed(state.connectionError ?? "Unknown error")
+                        }
+                    } label: {
+                        HStack {
+                            Spacer()
+                            if state.isBusy {
+                                ProgressView().padding(.trailing, 6)
+                            }
+                            Text("Save & Apply")
+                                .fontWeight(.semibold)
+                            Spacer()
                         }
                     }
-                    .frame(maxWidth: .infinity)
                     .disabled(state.isBusy)
+                } footer: {
+                    Text("Changes are applied to the speaker immediately — no restart required.")
                 }
             }
             .navigationTitle("Config")
@@ -44,7 +59,7 @@ struct ConfigView: View {
             )) {
                 Button("OK", role: .cancel) {}
             } message: {
-                Text("Preset config applied on the device.")
+                Text("Preset config applied on the speaker.")
             }
             .alert("Save failed", isPresented: Binding(
                 get: { if case .failed = saveResult { return true }; return false },
