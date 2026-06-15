@@ -2,14 +2,14 @@ name: SoundTouchCompanion
 options:
   bundleIdPrefix: com.jeffevertse
   deploymentTarget:
-    iOS: "26.0"
+    iOS: "17.0"
   xcodeVersion: "16"
 
 targets:
   SoundTouchCompanion:
     type: application
     platform: iOS
-    deploymentTarget: "26.0"
+    deploymentTarget: "17.0"
     sources:
       - path: SoundTouchCompanion
         excludes:
@@ -29,4 +29,3 @@ targets:
         CURRENT_PROJECT_VERSION: "1"
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 2C39YHVFA2
-        IPHONEOS_DEPLOYMENT_TARGET: "26.0"

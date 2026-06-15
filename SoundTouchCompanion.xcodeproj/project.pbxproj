@@ -18,6 +18,7 @@
 		88E16651DD05F31956E907B3 /* SoundTouchCompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3750424B75C4F51DE6C3A6D9 /* SoundTouchCompanionApp.swift */; };
 		B16F1743ACE10CC042D279C6 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BA5E4A4EF6E4F17D1B162F /* AppState.swift */; };
 		E31492F8DA0A1F9E85ADB8BB /* SoundTouchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2A78D8F70A8677F043EF88 /* SoundTouchClient.swift */; };
+		EC9483C368D77B77453CB4BB /* PresetEditSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D06FDB32917A2A4E42E2559 /* PresetEditSheet.swift */; };
 		F588F4EA0264471E981A59B0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7E88E7167D0A66E87314E0 /* SettingsView.swift */; };
 		FE83E91E5498CAA93C54DA49 /* PresetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72FBFF806D5B5CBE182283D /* PresetsView.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,7 @@
 		056280067CBAC3A118CC7EC3 /* BassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BassView.swift; sourceTree = "<group>"; };
 		0A0589C22F1F9296118B21F7 /* SoundTouchCompanion.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SoundTouchCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10BA5E4A4EF6E4F17D1B162F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		2D06FDB32917A2A4E42E2559 /* PresetEditSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetEditSheet.swift; sourceTree = "<group>"; };
 		3750424B75C4F51DE6C3A6D9 /* SoundTouchCompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundTouchCompanionApp.swift; sourceTree = "<group>"; };
 		3B2C96A8DFEF45A8AEDC6F01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E2A78D8F70A8677F043EF88 /* SoundTouchClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundTouchClient.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				AA30814CB8F36430EC52EEEF /* ConfigView.swift */,
 				89127B486593BEF0E351F9A5 /* ContentView.swift */,
 				D971E891F4D3214600A676B9 /* NowPlayingBanner.swift */,
+				2D06FDB32917A2A4E42E2559 /* PresetEditSheet.swift */,
 				B72FBFF806D5B5CBE182283D /* PresetsView.swift */,
 				AC7E88E7167D0A66E87314E0 /* SettingsView.swift */,
 			);
@@ -179,6 +182,7 @@
 				6E03CDC36FDE6D39FB8EF0B3 /* NowPlaying.swift in Sources */,
 				6B0B8EE7AAA1F4EB9057DC68 /* NowPlayingBanner.swift in Sources */,
 				04CBF1C266182E9C7CE168E0 /* Preset.swift in Sources */,
+				EC9483C368D77B77453CB4BB /* PresetEditSheet.swift in Sources */,
 				FE83E91E5498CAA93C54DA49 /* PresetsView.swift in Sources */,
 				F588F4EA0264471E981A59B0 /* SettingsView.swift in Sources */,
 				E31492F8DA0A1F9E85ADB8BB /* SoundTouchClient.swift in Sources */,
@@ -198,7 +202,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2C39YHVFA2;
 				INFOPLIST_FILE = SoundTouchCompanion/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -256,7 +260,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -318,7 +322,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -339,7 +343,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2C39YHVFA2;
 				INFOPLIST_FILE = SoundTouchCompanion/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

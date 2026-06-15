@@ -18,8 +18,10 @@ final class AppState {
     var nowPlaying: NowPlaying?
     var bassLevel: Int = 0
     var isBusy = false
+    var toast: String?
 
     private(set) var client: SoundTouchClient?
+    private var toastTask: Task<Void, Never>?
 
     init() {
         host = UserDefaults.standard.string(forKey: "st_host") ?? "192.168.1.29"
@@ -62,14 +64,12 @@ final class AppState {
     @MainActor
     func play(presetID: Int) async {
         guard let c = client else { return }
-        isBusy = true
-        defer { isBusy = false }
         do {
             try await c.play(presetID: presetID)
             try? await Task.sleep(for: .seconds(1))
             nowPlaying = try? await c.nowPlaying()
         } catch {
-            connectionError = error.localizedDescription
+            showToast("Playback failed: \(error.localizedDescription)")
         }
     }
 
@@ -80,7 +80,7 @@ final class AppState {
             try await c.setBass(level)
             bassLevel = level
         } catch {
-            connectionError = error.localizedDescription
+            showToast("Bass failed: \(error.localizedDescription)")
         }
     }
 
@@ -91,10 +91,21 @@ final class AppState {
         defer { isBusy = false }
         do {
             try await c.postConfig(config)
+            showToast("Saved ✓")
             return true
         } catch {
-            connectionError = error.localizedDescription
+            showToast("Save failed: \(error.localizedDescription)")
             return false
+        }
+    }
+
+    @MainActor
+    func showToast(_ message: String) {
+        toastTask?.cancel()
+        toast = message
+        toastTask = Task {
+            try? await Task.sleep(for: .seconds(2))
+            toast = nil
         }
     }
 }

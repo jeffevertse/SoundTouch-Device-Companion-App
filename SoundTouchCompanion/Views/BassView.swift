@@ -1,57 +1,53 @@
 import SwiftUI
 
-struct BassView: View {
+struct BassRow: View {
     @Environment(AppState.self) private var state
     @State private var pendingLevel: Int = 0
-
-    private var hasChanged: Bool { pendingLevel != state.bassLevel }
+    @State private var debounceTask: Task<Void, Never>?
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 14) {
-            HStack(alignment: .firstTextBaseline) {
-                Label("Bass", systemImage: "dial.low.fill")
-                    .font(.headline)
-                Spacer()
-                Text(pendingLevel > 0 ? "+\(pendingLevel)" : "\(pendingLevel)")
-                    .font(.title2.monospacedDigit().weight(.bold))
-                    .foregroundStyle(hasChanged ? Color.accentColor : .primary)
-                    .contentTransition(.numericText(value: Double(pendingLevel)))
-                    .animation(.snappy, value: pendingLevel)
-            }
+        VStack(alignment: .leading, spacing: 10) {
+            SectionHeader("BASS")
 
-            HStack(spacing: 8) {
-                Text("−9")
-                    .font(.caption).foregroundStyle(.secondary)
-                    .frame(minWidth: 20, alignment: .trailing)
+            HStack(spacing: 12) {
+                Image(systemName: "dial.low.fill")
+                    .font(.title3)
+                    .foregroundStyle(.secondary)
+                    .frame(width: 24)
+
                 Slider(
                     value: Binding(
                         get: { Double(pendingLevel) },
-                        set: { pendingLevel = Int($0.rounded()) }
+                        set: { newValue in
+                            pendingLevel = Int(newValue.rounded())
+                            schedule()
+                        }
                     ),
                     in: -9...9, step: 1
                 )
-                Text("+9")
-                    .font(.caption).foregroundStyle(.secondary)
-                    .frame(minWidth: 20, alignment: .leading)
-            }
+                .tint(.teal)
 
-            if hasChanged {
-                Button {
-                    Task { await state.setBass(pendingLevel) }
-                } label: {
-                    Text("Apply Bass")
-                        .font(.subheadline.weight(.semibold))
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.borderedProminent)
-                .controlSize(.regular)
-                .transition(.push(from: .bottom).combined(with: .opacity))
+                Text(pendingLevel > 0 ? "+\(pendingLevel)" : "\(pendingLevel)")
+                    .font(.subheadline.monospacedDigit())
+                    .foregroundStyle(.secondary)
+                    .frame(width: 32, alignment: .trailing)
             }
         }
-        .padding(16)
-        .glassEffect(in: RoundedRectangle(cornerRadius: 20, style: .continuous))
-        .animation(.spring(duration: 0.3), value: hasChanged)
+        .padding(14)
+        .background(Color(.secondarySystemGroupedBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .padding(.bottom, 8)
         .onAppear { pendingLevel = state.bassLevel }
         .onChange(of: state.bassLevel) { _, new in pendingLevel = new }
+    }
+
+    private func schedule() {
+        debounceTask?.cancel()
+        debounceTask = Task {
+            try? await Task.sleep(for: .milliseconds(400))
+            if !Task.isCancelled {
+                await state.setBass(pendingLevel)
+            }
+        }
     }
 }

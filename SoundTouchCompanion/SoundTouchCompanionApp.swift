@@ -6,8 +6,12 @@ struct SoundTouchCompanionApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(appState)
+            NavigationStack {
+                ContentView()
+                    .navigationTitle("SoundTouch")
+                    .navigationBarTitleDisplayMode(.large)
+            }
+            .environment(appState)
         }
     }
 }
