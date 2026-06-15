@@ -33,3 +33,7 @@ iPhone app  ──HTTP──▶  SoundTouch-Device (Go, armv7)  ──UPnP──
 ```
 
 Built with SwiftUI + `@Observable`. No third-party dependencies.
+
+## Related
+
+- **[SoundTouch-Device](https://github.com/jeffevertse/SoundTouch-Device)** — the Go HTTP server this app talks to, running on-device on the speaker hardware (armv7)
