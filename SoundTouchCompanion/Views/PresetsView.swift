@@ -40,40 +40,47 @@ private struct PresetCard: View {
     private var isEmpty: Bool { preset.streamURL.isEmpty }
 
     var body: some View {
-        Button {
-            guard !isEmpty else { return }
-            Task { await state.play(presetID: preset.id) }
-        } label: {
-            VStack(alignment: .leading, spacing: 6) {
-                Text("Preset \(preset.id)")
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-                Text(isEmpty ? "Empty" : preset.name)
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(isEmpty ? .secondary : .primary)
-                    .lineLimit(2)
-                    .multilineTextAlignment(.leading)
-                Spacer()
-            }
-            .padding(14)
-            .frame(height: height, alignment: .leading)
-            .frame(maxWidth: .infinity)
-            .background(
-                isActive
-                    ? Color.accentColor.opacity(0.10)
-                    : Color(.secondarySystemGroupedBackground)
-            )
-            .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-            .overlay {
-                if isActive {
-                    RoundedRectangle(cornerRadius: 14, style: .continuous)
-                        .strokeBorder(Color.accentColor, lineWidth: 1.5)
+        ZStack(alignment: .topTrailing) {
+            Button {
+                guard !isEmpty else { return }
+                Task { await state.play(presetID: preset.id) }
+            } label: {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("Preset \(preset.id)")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                    Text(isEmpty ? "Empty" : preset.name)
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(isEmpty ? .secondary : .primary)
+                        .lineLimit(2)
+                        .multilineTextAlignment(.leading)
+                    Spacer()
+                }
+                .padding(14)
+                .frame(height: height, alignment: .leading)
+                .frame(maxWidth: .infinity)
+                .background(
+                    isActive
+                        ? Color.accentColor.opacity(0.10)
+                        : Color(.secondarySystemGroupedBackground)
+                )
+                .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                .overlay {
+                    if isActive {
+                        RoundedRectangle(cornerRadius: 14, style: .continuous)
+                            .strokeBorder(Color.accentColor, lineWidth: 1.5)
+                    }
                 }
             }
-        }
-        .buttonStyle(.plain)
-        .opacity(isEmpty ? 0.5 : 1)
-        .overlay(alignment: .topTrailing) {
+            .buttonStyle(.plain)
+            .opacity(isEmpty ? 0.5 : 1)
+            .contextMenu {
+                Button("Edit Preset") { onEdit() }
+                if !isEmpty {
+                    Button("Play") { Task { await state.play(presetID: preset.id) } }
+                }
+            }
+
             Button {
                 onEdit()
             } label: {
@@ -83,12 +90,6 @@ private struct PresetCard: View {
                     .padding(6)
             }
             .buttonStyle(.plain)
-        }
-        .contextMenu {
-            Button("Edit Preset") { onEdit() }
-            if !isEmpty {
-                Button("Play") { Task { await state.play(presetID: preset.id) } }
-            }
         }
     }
 }

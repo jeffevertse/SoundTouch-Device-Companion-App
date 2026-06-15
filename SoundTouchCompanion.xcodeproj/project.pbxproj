@@ -25,7 +25,7 @@
 
 /* Begin PBXFileReference section */
 		056280067CBAC3A118CC7EC3 /* BassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BassView.swift; sourceTree = "<group>"; };
-		0A0589C22F1F9296118B21F7 /* SoundTouchCompanion.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SoundTouchCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A0589C22F1F9296118B21F7 /* SoundTouchCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundTouchCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10BA5E4A4EF6E4F17D1B162F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		2D06FDB32917A2A4E42E2559 /* PresetEditSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetEditSheet.swift; sourceTree = "<group>"; };
 		3750424B75C4F51DE6C3A6D9 /* SoundTouchCompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundTouchCompanionApp.swift; sourceTree = "<group>"; };
@@ -197,11 +197,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2C39YHVFA2;
 				INFOPLIST_FILE = SoundTouchCompanion/Info.plist;
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -338,11 +340,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2C39YHVFA2;
 				INFOPLIST_FILE = SoundTouchCompanion/Info.plist;
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
