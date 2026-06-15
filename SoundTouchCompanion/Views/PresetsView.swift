@@ -3,7 +3,6 @@ import SwiftUI
 struct PresetsSection: View {
     @Environment(AppState.self) private var state
     @State private var editingPreset: Preset?
-    let cardHeight: CGFloat
 
     private let columns = [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)]
 
@@ -11,12 +10,16 @@ struct PresetsSection: View {
         VStack(alignment: .leading, spacing: 10) {
             SectionHeader("RADIO PRESETS")
 
-            LazyVGrid(columns: columns, spacing: 12) {
-                ForEach(state.config.presets) { preset in
-                    PresetCard(preset: preset, height: cardHeight, onEdit: { editingPreset = preset })
+            GeometryReader { geo in
+                let cardHeight = max(72, (geo.size.height - 12 * 2) / 3)
+                LazyVGrid(columns: columns, spacing: 12) {
+                    ForEach(state.config.presets) { preset in
+                        PresetCard(preset: preset, height: cardHeight, onEdit: { editingPreset = preset })
+                    }
                 }
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .sheet(item: $editingPreset) { preset in
             PresetEditSheet(preset: preset)
         }
