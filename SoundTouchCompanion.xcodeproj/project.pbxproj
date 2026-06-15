@@ -31,7 +31,6 @@
 		6E2A78D8F70A8677F043EF88 /* SoundTouchClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundTouchClient.swift; sourceTree = "<group>"; };
 		89127B486593BEF0E351F9A5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		97286934496E83232170029D /* DeviceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfig.swift; sourceTree = "<group>"; };
-		A7DFF32FB5758D9E7B83BDE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AA30814CB8F36430EC52EEEF /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		AC7E88E7167D0A66E87314E0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B01C859EBD4D67B94DA400F4 /* NowPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlaying.swift; sourceTree = "<group>"; };
@@ -93,7 +92,6 @@
 			children = (
 				10BA5E4A4EF6E4F17D1B162F /* AppState.swift */,
 				3B2C96A8DFEF45A8AEDC6F01 /* Assets.xcassets */,
-				A7DFF32FB5758D9E7B83BDE2 /* Info.plist */,
 				3750424B75C4F51DE6C3A6D9 /* SoundTouchCompanionApp.swift */,
 				5AEBB7C05A0CEEC6AEF22352 /* Models */,
 				38A5855A63F62C539A4D851B /* Services */,
@@ -130,7 +128,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 				};
 			};
