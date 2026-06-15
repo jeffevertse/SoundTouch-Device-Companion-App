@@ -1,0 +1,373 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04CBF1C266182E9C7CE168E0 /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D70CE1FBBB25125B4E254 /* Preset.swift */; };
+		078AE4503A6889AA421C57FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89127B486593BEF0E351F9A5 /* ContentView.swift */; };
+		07B4C842E3E88DB12CD34189 /* BassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056280067CBAC3A118CC7EC3 /* BassView.swift */; };
+		3769881CF437D30A67C1A840 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B2C96A8DFEF45A8AEDC6F01 /* Assets.xcassets */; };
+		63CF1494492DAAE2E563DE2E /* DeviceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97286934496E83232170029D /* DeviceConfig.swift */; };
+		6B0B8EE7AAA1F4EB9057DC68 /* NowPlayingBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D971E891F4D3214600A676B9 /* NowPlayingBanner.swift */; };
+		6E03CDC36FDE6D39FB8EF0B3 /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01C859EBD4D67B94DA400F4 /* NowPlaying.swift */; };
+		82FF502E0B8365AE5F1B2A6A /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30814CB8F36430EC52EEEF /* ConfigView.swift */; };
+		88E16651DD05F31956E907B3 /* SoundTouchCompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3750424B75C4F51DE6C3A6D9 /* SoundTouchCompanionApp.swift */; };
+		B16F1743ACE10CC042D279C6 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BA5E4A4EF6E4F17D1B162F /* AppState.swift */; };
+		E31492F8DA0A1F9E85ADB8BB /* SoundTouchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2A78D8F70A8677F043EF88 /* SoundTouchClient.swift */; };
+		F588F4EA0264471E981A59B0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7E88E7167D0A66E87314E0 /* SettingsView.swift */; };
+		FE83E91E5498CAA93C54DA49 /* PresetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72FBFF806D5B5CBE182283D /* PresetsView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		056280067CBAC3A118CC7EC3 /* BassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BassView.swift; sourceTree = "<group>"; };
+		0A0589C22F1F9296118B21F7 /* SoundTouchCompanion.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SoundTouchCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		10BA5E4A4EF6E4F17D1B162F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		3750424B75C4F51DE6C3A6D9 /* SoundTouchCompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundTouchCompanionApp.swift; sourceTree = "<group>"; };
+		3B2C96A8DFEF45A8AEDC6F01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6E2A78D8F70A8677F043EF88 /* SoundTouchClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundTouchClient.swift; sourceTree = "<group>"; };
+		89127B486593BEF0E351F9A5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		97286934496E83232170029D /* DeviceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfig.swift; sourceTree = "<group>"; };
+		A7DFF32FB5758D9E7B83BDE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AA30814CB8F36430EC52EEEF /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
+		AC7E88E7167D0A66E87314E0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B01C859EBD4D67B94DA400F4 /* NowPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlaying.swift; sourceTree = "<group>"; };
+		B72FBFF806D5B5CBE182283D /* PresetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetsView.swift; sourceTree = "<group>"; };
+		C80D70CE1FBBB25125B4E254 /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
+		D971E891F4D3214600A676B9 /* NowPlayingBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingBanner.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		38A5855A63F62C539A4D851B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6E2A78D8F70A8677F043EF88 /* SoundTouchClient.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5AEBB7C05A0CEEC6AEF22352 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				97286934496E83232170029D /* DeviceConfig.swift */,
+				B01C859EBD4D67B94DA400F4 /* NowPlaying.swift */,
+				C80D70CE1FBBB25125B4E254 /* Preset.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		732C828304578BE474A20260 = {
+			isa = PBXGroup;
+			children = (
+				BC9881525FF60F4BE7DBD24A /* SoundTouchCompanion */,
+				89C91C6CCB264148C8339B59 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7ABED9ACC5A4604E0B9617FB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				056280067CBAC3A118CC7EC3 /* BassView.swift */,
+				AA30814CB8F36430EC52EEEF /* ConfigView.swift */,
+				89127B486593BEF0E351F9A5 /* ContentView.swift */,
+				D971E891F4D3214600A676B9 /* NowPlayingBanner.swift */,
+				B72FBFF806D5B5CBE182283D /* PresetsView.swift */,
+				AC7E88E7167D0A66E87314E0 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		89C91C6CCB264148C8339B59 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0A0589C22F1F9296118B21F7 /* SoundTouchCompanion.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC9881525FF60F4BE7DBD24A /* SoundTouchCompanion */ = {
+			isa = PBXGroup;
+			children = (
+				10BA5E4A4EF6E4F17D1B162F /* AppState.swift */,
+				3B2C96A8DFEF45A8AEDC6F01 /* Assets.xcassets */,
+				A7DFF32FB5758D9E7B83BDE2 /* Info.plist */,
+				3750424B75C4F51DE6C3A6D9 /* SoundTouchCompanionApp.swift */,
+				5AEBB7C05A0CEEC6AEF22352 /* Models */,
+				38A5855A63F62C539A4D851B /* Services */,
+				7ABED9ACC5A4604E0B9617FB /* Views */,
+			);
+			path = SoundTouchCompanion;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		39D268DCE3B5E557057DA8B4 /* SoundTouchCompanion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 229484AC18EB427EC92CC89E /* Build configuration list for PBXNativeTarget "SoundTouchCompanion" */;
+			buildPhases = (
+				1B5DD2280678E3228EF196F9 /* Sources */,
+				745F51A7F2F2F33E947C7E0A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SoundTouchCompanion;
+			packageProductDependencies = (
+			);
+			productName = SoundTouchCompanion;
+			productReference = 0A0589C22F1F9296118B21F7 /* SoundTouchCompanion.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EEF636A3D61833B27121E7AB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = AC6A229F2B1331D680AAD046 /* Build configuration list for PBXProject "SoundTouchCompanion" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 732C828304578BE474A20260;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 89C91C6CCB264148C8339B59 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				39D268DCE3B5E557057DA8B4 /* SoundTouchCompanion */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		745F51A7F2F2F33E947C7E0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3769881CF437D30A67C1A840 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1B5DD2280678E3228EF196F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B16F1743ACE10CC042D279C6 /* AppState.swift in Sources */,
+				07B4C842E3E88DB12CD34189 /* BassView.swift in Sources */,
+				82FF502E0B8365AE5F1B2A6A /* ConfigView.swift in Sources */,
+				078AE4503A6889AA421C57FC /* ContentView.swift in Sources */,
+				63CF1494492DAAE2E563DE2E /* DeviceConfig.swift in Sources */,
+				6E03CDC36FDE6D39FB8EF0B3 /* NowPlaying.swift in Sources */,
+				6B0B8EE7AAA1F4EB9057DC68 /* NowPlayingBanner.swift in Sources */,
+				04CBF1C266182E9C7CE168E0 /* Preset.swift in Sources */,
+				FE83E91E5498CAA93C54DA49 /* PresetsView.swift in Sources */,
+				F588F4EA0264471E981A59B0 /* SettingsView.swift in Sources */,
+				E31492F8DA0A1F9E85ADB8BB /* SoundTouchClient.swift in Sources */,
+				88E16651DD05F31956E907B3 /* SoundTouchCompanionApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6CDA348316BD703E585C9CBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = SoundTouchCompanion/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeffevertse.SoundTouchCompanion;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		74A3D6AF1CD7C998BAD400E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A0EFE58092A179D208CF9329 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B8694F8B0B5A1B95C67CDFAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = SoundTouchCompanion/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeffevertse.SoundTouchCompanion;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		229484AC18EB427EC92CC89E /* Build configuration list for PBXNativeTarget "SoundTouchCompanion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CDA348316BD703E585C9CBD /* Debug */,
+				B8694F8B0B5A1B95C67CDFAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AC6A229F2B1331D680AAD046 /* Build configuration list for PBXProject "SoundTouchCompanion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0EFE58092A179D208CF9329 /* Debug */,
+				74A3D6AF1CD7C998BAD400E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EEF636A3D61833B27121E7AB /* Project object */;
+}
