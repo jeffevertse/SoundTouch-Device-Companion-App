@@ -6,12 +6,15 @@ struct ContentView: View {
     var body: some View {
         if state.isConnected {
             TabView {
-                PresetsView()
-                    .tabItem { Label("Presets", systemImage: "radio") }
-                ConfigView()
-                    .tabItem { Label("Config", systemImage: "slider.horizontal.3") }
-                SettingsView()
-                    .tabItem { Label("Settings", systemImage: "gearshape") }
+                Tab("Presets", systemImage: "radio.fill") {
+                    PresetsView()
+                }
+                Tab("Config", systemImage: "slider.horizontal.3") {
+                    ConfigView()
+                }
+                Tab("Settings", systemImage: "gearshape.fill") {
+                    SettingsView()
+                }
             }
         } else {
             SettingsView()

@@ -5,7 +5,7 @@ struct NowPlayingBanner: View {
 
     private var isPlaying: Bool { state.nowPlaying?.isPlaying == true }
 
-    private var label: String {
+    private var stationName: String {
         if state.nowPlaying?.isStandby == true { return "Standby" }
         if let id = state.nowPlaying?.activePresetID,
            let preset = state.config.presets.first(where: { $0.id == id }),
@@ -16,25 +16,24 @@ struct NowPlayingBanner: View {
     }
 
     var body: some View {
-        HStack(spacing: 14) {
+        HStack(spacing: 12) {
             Image(systemName: isPlaying ? "waveform" : "speaker.slash.fill")
-                .font(.body)
-                .fontWeight(.semibold)
+                .font(.subheadline.weight(.semibold))
                 .foregroundStyle(isPlaying ? Color.accentColor : .secondary)
                 .symbolEffect(.variableColor.cumulative.reversing, isActive: isPlaying)
-                .frame(width: 24)
+                .frame(width: 22)
 
-            Text(label)
-                .font(.subheadline)
-                .fontWeight(isPlaying ? .semibold : .regular)
+            Text(stationName)
+                .font(.subheadline.weight(isPlaying ? .semibold : .regular))
                 .foregroundStyle(isPlaying ? .primary : .secondary)
                 .lineLimit(1)
 
             Spacer()
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 11)
-        .background(.bar)
-        .overlay(alignment: .top) { Divider() }
+        .padding(.horizontal, 18)
+        .padding(.vertical, 13)
+        .glassEffect(in: Capsule())
+        .padding(.horizontal, 16)
+        .padding(.bottom, 10)
     }
 }

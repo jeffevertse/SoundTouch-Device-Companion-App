@@ -11,11 +11,9 @@ struct BassView: View {
             HStack(alignment: .firstTextBaseline) {
                 Label("Bass", systemImage: "dial.low.fill")
                     .font(.headline)
-                    .foregroundStyle(.primary)
                 Spacer()
                 Text(pendingLevel > 0 ? "+\(pendingLevel)" : "\(pendingLevel)")
-                    .font(.title2.monospacedDigit())
-                    .fontWeight(.bold)
+                    .font(.title2.monospacedDigit().weight(.bold))
                     .foregroundStyle(hasChanged ? Color.accentColor : .primary)
                     .contentTransition(.numericText(value: Double(pendingLevel)))
                     .animation(.snappy, value: pendingLevel)
@@ -23,9 +21,8 @@ struct BassView: View {
 
             HStack(spacing: 8) {
                 Text("−9")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                    .frame(minWidth: 18, alignment: .trailing)
+                    .font(.caption).foregroundStyle(.secondary)
+                    .frame(minWidth: 20, alignment: .trailing)
                 Slider(
                     value: Binding(
                         get: { Double(pendingLevel) },
@@ -34,9 +31,8 @@ struct BassView: View {
                     in: -9...9, step: 1
                 )
                 Text("+9")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                    .frame(minWidth: 18, alignment: .leading)
+                    .font(.caption).foregroundStyle(.secondary)
+                    .frame(minWidth: 20, alignment: .leading)
             }
 
             if hasChanged {
@@ -53,8 +49,7 @@ struct BassView: View {
             }
         }
         .padding(16)
-        .background(Color(.secondarySystemGroupedBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .glassEffect(in: RoundedRectangle(cornerRadius: 20, style: .continuous))
         .animation(.spring(duration: 0.3), value: hasChanged)
         .onAppear { pendingLevel = state.bassLevel }
         .onChange(of: state.bassLevel) { _, new in pendingLevel = new }
